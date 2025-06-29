@@ -20,7 +20,7 @@
     border-radius: 50%;
     pointer-events: none;
     z-index: 0;
-    background: radial-gradient(circle, rgba(110, 69, 226, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(45, 125, 125, 0.15) 0%, transparent 70%);
     transform: translate(-50%, -50%);
     transition: opacity 0.3s ease;
     opacity: 0;
@@ -49,7 +49,7 @@ body:hover .mouse-glow {
     font-size: 3.5rem;
     font-weight: 700;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, var(--primary-color), #6e45e2);
+    background: linear-gradient(90deg, var(--primary-color), #a8c5c5);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -76,7 +76,7 @@ body:hover .mouse-glow {
     padding: 0.7rem 1.5rem;
     border: 2px solid transparent;
     background: linear-gradient(var(--bg-color), var(--bg-color)) padding-box,
-                linear-gradient(135deg, var(--primary-color), #6e45e2) border-box;
+                linear-gradient(135deg, var(--primary-color), #a8c5c5) border-box;
     border-radius: 30px;
     font-weight: 500;
     cursor: pointer;
@@ -93,7 +93,7 @@ body:hover .mouse-glow {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, var(--primary-color), #6e45e2);
+    background: linear-gradient(135deg, var(--primary-color), #a8c5c5);
     transition: left 0.3s ease;
     z-index: -1;
 }
@@ -107,7 +107,7 @@ body:hover .mouse-glow {
 .filter-btn.active {
     color: white;
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(110, 69, 226, 0.3);
+    box-shadow: 0 5px 15px rgba(45, 125, 125, 0.3);
 }
 
 /* Projects Showcase Grid */
@@ -129,7 +129,7 @@ body:hover .mouse-glow {
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
     cursor: pointer;
-    border: 1px solid rgba(110, 69, 226, 0.1);
+    border: 1px solid rgba(45, 125, 125, 0.1);
 }
 
 .project-item::before {
@@ -139,7 +139,7 @@ body:hover .mouse-glow {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), #6e45e2);
+    background: linear-gradient(90deg, var(--primary-color), #a8c5c5);
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
@@ -151,8 +151,8 @@ body:hover .mouse-glow {
 
 .project-item:hover {
     transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 40px rgba(110, 69, 226, 0.2);
-    border-color: rgba(110, 69, 226, 0.3);
+    box-shadow: 0 20px 40px rgba(45, 125, 125, 0.2);
+    border-color: rgba(45, 125, 125, 0.3);
 }
 
 /* Project Image Container */
@@ -160,7 +160,7 @@ body:hover .mouse-glow {
     position: relative;
     height: 250px;
     overflow: hidden;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #2d7d7d 0%, #a8c5c5 100%);
 }
 
 .project-image img {
@@ -213,7 +213,7 @@ body:hover .mouse-glow {
 }
 
 .overlay-link:hover {
-    background: #6e45e2;
+    background: #1f5a5a;
     transform: scale(1.1);
 }
 
@@ -249,11 +249,12 @@ body:hover .mouse-glow {
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 1.5rem;
+    justify-content: center; /* Center tech tags */
 }
 
 .tech-tag {
     padding: 0.3rem 0.8rem;
-    background: rgba(110, 69, 226, 0.1);
+    background: rgba(45, 125, 125, 0.1);
     color: var(--primary-color);
     border-radius: 20px;
     font-size: 0.85rem;
@@ -262,7 +263,14 @@ body:hover .mouse-glow {
 }
 
 .project-item:hover .tech-tag {
-    background: rgba(110, 69, 226, 0.2);
+    background: rgba(45, 125, 125, 0.2);
+    transform: translateY(-2px);
+}
+
+.tech-tag:hover {
+    background: linear-gradient(135deg, #a8c5c5, #f0d878);
+    color: white;
+    transform: translateY(-2px);
 }
 
 /* Project Stats */
@@ -270,7 +278,7 @@ body:hover .mouse-glow {
     display: flex;
     justify-content: space-between;
     padding-top: 1rem;
-    border-top: 1px solid rgba(110, 69, 226, 0.1);
+    border-top: 1px solid rgba(45, 125, 125, 0.1);
 }
 
 .stat-item {
@@ -285,6 +293,87 @@ body:hover .mouse-glow {
     color: var(--primary-color);
 }
 
+/* Project Category Badges */
+.project-category {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(135deg, #2d7d7d, #a8c5c5);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
+}
+
+/* Enhanced Project Actions */
+.project-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.action-btn.primary {
+    background: var(--primary-color);
+    color: white;
+}
+
+.action-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(45, 125, 125, 0.3);
+}
+
+.action-btn.primary:hover {
+    background: #1f5a5a;
+    border-color: #1f5a5a;
+}
+
+/* Project Status Indicators */
+.project-status {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    z-index: 2;
+}
+
+.project-status.completed {
+    background: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+}
+
+.project-status.in-progress {
+    background: #f0d878;
+    box-shadow: 0 0 0 3px rgba(240, 216, 120, 0.2);
+}
+
+.project-status.archived {
+    background: #6b7280;
+    box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.2);
+}
+
 /* Dark mode adjustments */
 body.dark .project-item {
     background: var(--dark-section-bg);
@@ -293,16 +382,42 @@ body.dark .project-item {
 
 body.dark .filter-btn {
     background: linear-gradient(var(--dark-section-bg), var(--dark-section-bg)) padding-box,
-                linear-gradient(135deg, var(--primary-color), #6e45e2) border-box;
+                linear-gradient(135deg, var(--primary-color), #a8c5c5) border-box;
 }
 
 body.dark .tech-tag {
-    background: rgba(96, 165, 250, 0.2);
-    color: #60a5fa;
+    background: rgba(168, 197, 197, 0.2);
+    color: #a8c5c5;
+}
+
+body.dark .tech-tag:hover {
+    background: linear-gradient(135deg, #a8c5c5, #f0d878);
+    color: white;
 }
 
 body.dark .project-stats {
     border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark .action-btn {
+    border-color: #a8c5c5;
+    color: #a8c5c5;
+}
+
+body.dark .action-btn:hover {
+    background: #a8c5c5;
+    color: var(--dark-section-bg);
+}
+
+body.dark .action-btn.primary {
+    background: #a8c5c5;
+    color: var(--dark-section-bg);
+}
+
+body.dark .action-btn.primary:hover {
+    background: #2d7d7d;
+    border-color: #2d7d7d;
+    color: white;
 }
 
 /* Animation classes for filtering */
@@ -318,6 +433,11 @@ body.dark .project-stats {
     transform: scale(1);
     position: relative;
     pointer-events: auto;
+}
+
+/* Filter Animation Enhancement */
+.projects-showcase.filtering .project-item {
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 /* Responsive Design */
@@ -372,7 +492,6 @@ body.dark .project-stats {
     }
 }
 
-
 /* Add this to the end of your existing projects-page.css file */
 
 /* Mobile Grid Layout for Projects */
@@ -416,6 +535,7 @@ body.dark .project-stats {
     .project-tech {
         gap: 0.25rem;
         margin-bottom: 0.75rem;
+        justify-content: center; /* Center tech tags on mobile */
     }
     
     .tech-tag {
@@ -441,6 +561,17 @@ body.dark .project-stats {
         width: 40px;
         height: 40px;
         font-size: 1rem;
+    }
+    
+    /* Action buttons on mobile */
+    .project-actions {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .action-btn {
+        justify-content: center;
+        font-size: 0.813rem;
     }
 }
 
@@ -468,6 +599,10 @@ body.dark .project-stats {
     .project-description {
         font-size: 0.875rem;
         -webkit-line-clamp: 4;
+    }
+    
+    .project-tech {
+        justify-content: center; /* Center tech tags */
     }
 }
 
@@ -502,6 +637,10 @@ body.dark .project-stats {
     
     .project-stats {
         display: none; /* Hide stats in landscape to save space */
+    }
+    
+    .project-actions {
+        display: none; /* Hide actions in landscape */
     }
 }
 
@@ -550,5 +689,21 @@ body.dark .project-stats {
     .projects-showcase {
         grid-template-columns: 1fr;
         gap: 1.5rem;
+    }
+}
+
+/* Enhanced hover effects for desktop */
+@media (min-width: 1025px) {
+    .project-item:hover .project-tech .tech-tag:nth-child(odd) {
+        animation: techPulse 0.6s ease-in-out;
+    }
+    
+    .project-item:hover .project-tech .tech-tag:nth-child(even) {
+        animation: techPulse 0.6s ease-in-out 0.1s;
+    }
+    
+    @keyframes techPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.05); }
     }
 }

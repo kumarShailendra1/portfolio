@@ -1,4 +1,4 @@
-// journey-interactive.js - Complete Interactive Timeline with Mobile Support
+// journey-interactive.js - Complete Interactive Timeline with Fixed Teal Colors
 
 class InteractiveJourney {
     constructor() {
@@ -54,6 +54,9 @@ class InteractiveJourney {
     transformTimelineData() {
         const timeline = portfolioData.timeline || [];
         
+        // Updated with teal color palette
+        const tealColors = ['#2d7d7d', '#a8c5c5', '#5a9090', '#7bb5b5'];
+        
         this.journeyData = timeline.map((item, index) => ({
             id: `milestone-${index}`,
             title: item.title,
@@ -62,7 +65,7 @@ class InteractiveJourney {
             icon: ['🚀', '💼', '🏗️', '🌟'][index % 4],
             description: item.description,
             technologies: item.technologies || [],
-            color: ['#3b82f6', '#6366f1', '#8b5cf6', '#a855f7'][index % 4]
+            color: tealColors[index % tealColors.length] // Use teal colors instead of blue
         }));
     }
     
@@ -77,10 +80,10 @@ class InteractiveJourney {
             node.className = 'timeline-node';
             node.dataset.index = index;
             
-            // Node content
+            // Node content - Use CSS classes instead of inline styles
             node.innerHTML = `
                 <div class="node-connector"></div>
-                <div class="node-circle" style="background: ${data.color}">
+                <div class="node-circle">
                     <span class="node-icon">${data.icon}</span>
                 </div>
                 <div class="node-content">
@@ -201,18 +204,13 @@ class InteractiveJourney {
         window.addEventListener('resize', () => {
             clearTimeout(resizeTimeout);
             resizeTimeout = setTimeout(() => {
-                // Determine if we are in mobile view and the journey section is currently visible
                 const isMobileViewport = window.innerWidth <= 1024;
                 const journeyVisible = this.isJourneyVisible();
 
-                // Only attempt to scroll the active node into view when the journey section
-                // itself is visible. This avoids the page unexpectedly jumping to the journey
-                // section on very small screens when the user is at a different position.
                 if (isMobileViewport && journeyVisible && this.timelineNodes[this.currentIndex]) {
                     this.scrollNodeIntoView(this.timelineNodes[this.currentIndex]);
                 }
 
-                // Adjust autoplay based on screen size
                 if (isMobileViewport && this.isPlaying) {
                     this.stopAutoPlay();
                 }
@@ -234,16 +232,13 @@ class InteractiveJourney {
             const diffX = touchStartX - touchEndX;
             const diffY = touchStartY - touchEndY;
             
-            // Determine if it's a horizontal or vertical swipe
             const isHorizontalSwipe = Math.abs(diffX) > Math.abs(diffY);
             const minSwipeDistance = 50;
             
             if (isHorizontalSwipe && Math.abs(diffX) > minSwipeDistance && !this.isAnimating) {
                 if (diffX > 0) {
-                    // Swipe left - next
                     this.nextMilestone();
                 } else {
-                    // Swipe right - previous
                     this.previousMilestone();
                 }
             }
@@ -252,13 +247,13 @@ class InteractiveJourney {
         // Pause on hover
         this.journeyWrapper.addEventListener('mouseenter', () => {
             if (this.isPlaying) {
-                this.pauseAutoPlay(true); // Temporary pause
+                this.pauseAutoPlay(true);
             }
         });
         
         this.journeyWrapper.addEventListener('mouseleave', () => {
             if (this.isPlaying && this.autoPlayInterval === null) {
-                this.startAutoPlay(); // Resume if it was playing
+                this.startAutoPlay();
             }
         });
     }
@@ -271,7 +266,6 @@ class InteractiveJourney {
         this.currentIndex = index;
         this.updateVisualization();
         
-        // Reset autoplay timer if playing
         if (this.isPlaying) {
             this.stopAutoPlay();
             this.startAutoPlay();
@@ -282,7 +276,7 @@ class InteractiveJourney {
         if (this.currentIndex > 0) {
             this.goToMilestone(this.currentIndex - 1);
         } else {
-            this.goToMilestone(this.journeyData.length - 1); // Loop to end
+            this.goToMilestone(this.journeyData.length - 1);
         }
     }
     
@@ -290,18 +284,18 @@ class InteractiveJourney {
         if (this.currentIndex < this.journeyData.length - 1) {
             this.goToMilestone(this.currentIndex + 1);
         } else {
-            this.goToMilestone(0); // Loop to start
+            this.goToMilestone(0);
         }
     }
     
     updateVisualization() {
         const currentData = this.journeyData[this.currentIndex];
         
-        // Update progress bar
+        // Update progress bar - removed inline style
         if (this.progressBar) {
             const progress = ((this.currentIndex + 1) / this.journeyData.length) * 100;
             this.progressBar.style.width = `${progress}%`;
-            this.progressBar.style.background = currentData.color;
+            // Let CSS handle the color through classes
         }
         
         // Update timeline nodes
@@ -312,7 +306,6 @@ class InteractiveJourney {
                 node.classList.add('past');
             } else if (index === this.currentIndex) {
                 node.classList.add('active');
-                // Scroll node into view
                 this.scrollNodeIntoView(node);
             } else {
                 node.classList.add('future');
@@ -333,24 +326,20 @@ class InteractiveJourney {
     }
     
     scrollNodeIntoView(node) {
-        // Check if mobile view
         const isMobile = window.innerWidth <= 1024;
         
         if (isMobile) {
-            // For mobile/tablet grid layout, ensure the node is visible
             const nodeRect = node.getBoundingClientRect();
             const windowHeight = window.innerHeight;
-            const headerHeight = 80; // Approximate header height
-            const controlsHeight = 80; // Approximate controls height
+            const headerHeight = 80;
+            const controlsHeight = 80;
             
-            // Check if node is fully visible
             const nodeTop = nodeRect.top;
             const nodeBottom = nodeRect.bottom;
             const visibleTop = headerHeight;
             const visibleBottom = windowHeight - controlsHeight;
             
             if (nodeTop < visibleTop || nodeBottom > visibleBottom) {
-                // Scroll to center the node in the visible area
                 const nodeCenter = nodeTop + nodeRect.height / 2;
                 const visibleCenter = (visibleTop + visibleBottom) / 2;
                 const scrollOffset = nodeCenter - visibleCenter;
@@ -361,7 +350,6 @@ class InteractiveJourney {
                 });
             }
         } else {
-            // For desktop, use horizontal scrolling
             const container = this.timelineContainer;
             const nodeRect = node.getBoundingClientRect();
             const containerRect = container.getBoundingClientRect();
@@ -387,11 +375,11 @@ class InteractiveJourney {
         this.infoCard.style.transform = 'translateY(20px)';
         
         setTimeout(() => {
-            // On mobile, show more compact info directly in the card
+            // Removed inline color styles - let CSS handle colors
             if (isMobile) {
                 this.infoCard.innerHTML = `
-                    <div class="info-header" style="border-color: ${data.color}">
-                        <div class="info-icon" style="background: ${data.color}">${data.icon}</div>
+                    <div class="info-header">
+                        <div class="info-icon">${data.icon}</div>
                         <div class="info-meta">
                             <h3 class="info-title">${data.title}</h3>
                             <p class="info-company">${data.company} • ${data.year}</p>
@@ -401,7 +389,7 @@ class InteractiveJourney {
                         <p class="info-description">${data.description}</p>
                         <div class="info-technologies">
                             ${data.technologies.slice(0, 4).map(tech => 
-                                `<span class="tech-chip" style="background: ${data.color}20; color: ${data.color}">${tech}</span>`
+                                `<span class="tech-chip">${tech}</span>`
                             ).join('')}
                         </div>
                         ${data.technologies.length > 4 ? `
@@ -410,10 +398,9 @@ class InteractiveJourney {
                     </div>
                 `;
             } else {
-                // Desktop version with explore button
                 this.infoCard.innerHTML = `
-                    <div class="info-header" style="border-color: ${data.color}">
-                        <div class="info-icon" style="background: ${data.color}">${data.icon}</div>
+                    <div class="info-header">
+                        <div class="info-icon">${data.icon}</div>
                         <div class="info-meta">
                             <h3 class="info-title">${data.title}</h3>
                             <p class="info-company">${data.company} • ${data.year}</p>
@@ -423,12 +410,12 @@ class InteractiveJourney {
                         <p class="info-description">${data.description}</p>
                         <div class="info-technologies">
                             ${data.technologies.map(tech => 
-                                `<span class="tech-chip" style="background: ${data.color}20; color: ${data.color}">${tech}</span>`
+                                `<span class="tech-chip">${tech}</span>`
                             ).join('')}
                         </div>
                     </div>
                     <div class="info-footer">
-                        <button class="explore-btn" onclick="openJourneyModal()" style="background: ${data.color}">
+                        <button class="explore-btn" onclick="openJourneyModal()">
                             Explore Details <i class="fas fa-arrow-right"></i>
                         </button>
                     </div>
@@ -446,11 +433,11 @@ class InteractiveJourney {
         const nextBtn = document.getElementById('nextBtn');
         
         if (prevBtn) {
-            prevBtn.disabled = false; // Always enabled with loop
+            prevBtn.disabled = false;
         }
         
         if (nextBtn) {
-            nextBtn.disabled = false; // Always enabled with loop
+            nextBtn.disabled = false;
         }
     }
     
@@ -511,7 +498,7 @@ class InteractiveJourney {
     }
 }
 
-// Modal function (reuse existing modal structure)
+// Modal function with fixed teal colors
 window.openJourneyModal = function() {
     const journey = window.interactiveJourney;
     if (!journey) return;
@@ -523,8 +510,9 @@ window.openJourneyModal = function() {
     
     if (!modal || !data) return;
     
+    // Removed inline color styles - let CSS handle colors
     modalHeader.innerHTML = `
-        <div class="modal-journey-header" style="background: linear-gradient(135deg, ${data.color}, ${data.color}dd)">
+        <div class="modal-journey-header">
             <div class="modal-icon">${data.icon}</div>
             <div class="modal-info">
                 <h2 class="modal-title">${data.title}</h2>
@@ -542,8 +530,8 @@ window.openJourneyModal = function() {
             <h4>Technologies & Skills</h4>
             <div class="modal-tech-grid">
                 ${data.technologies.map(tech => 
-                    `<div class="modal-tech-item" style="border-color: ${data.color}">
-                        <i class="fas fa-check-circle" style="color: ${data.color}"></i>
+                    `<div class="modal-tech-item">
+                        <i class="fas fa-check-circle"></i>
                         ${tech}
                     </div>`
                 ).join('')}

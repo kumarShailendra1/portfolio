@@ -3,14 +3,14 @@
 const portfolioData = {
     // Personal Information
     personal: {
-        name: "Veerender Rathod",
-        title: "Senior Software Engineer",
-        tagline: "Building Scalable Systems & Microservices",
-        description: "More than 4.6+ years of experience using Java, SpringBoot, GoLang, System Design, Data structure and Algorithms. Proficient in scalable Systems, Microservices, RestFul APIs, Distributed Systems. Skilled in end-to-end project planning, scope management, risk analysis, and quality control.",
+        name: "Shailendra Kumar",
+        title: "Data Engineer 2",
+        tagline: "Building Scalable Systems & Data Platforms",
+        description: "Results-driven Software Engineer with 5+ years of experience building scalable, high-performance backend systems and distributed architectures. Proven expertise in Java, Golang, and Kafka to design, implement, and optimize microservices powering mission-critical platforms. Adept at reducing system latency, increasing throughput, and enhancing data reliability across real-time and batch-processing pipelines.",
         profileImage: "images/my_pic.jpg", // Add your profile image path here
         resume: "resume.pdf", // Add your resume path here
-        email: "rathodveerender25@gmail.com",
-        phone: "+91-9129382373",
+        email: "shailendrakumarnirmal7524@gmail.com",
+        phone: "+91-8840265502",
         location: "Bengaluru, Karnataka, IN"
     },
 
@@ -25,10 +25,10 @@ const portfolioData = {
 
     // Social Links
     social: [
-        { icon: "fab fa-linkedin", url: "https://linkedin.com/in/rathod-veerender", label: "LinkedIn" },
-        { icon: "fab fa-github", url: "https://github.com/Xander", label: "GitHub" },
+        { icon: "fab fa-linkedin", url: "https://linkedin.com/in/shailendra-kumar", label: "LinkedIn" },
+        { icon: "fab fa-github", url: "https://github.com/kumarShailendra1", label: "GitHub" },
         { icon: "fas fa-code", url: "https://leetcode.com/rathod1235", label: "LeetCode" },
-        { icon: "fas fa-envelope", url: "mailto:rathodveerender25@gmail.com", label: "Email" }
+        { icon: "fas fa-envelope", url: "mailto:shailendrakumarnirmal7524@gmail.com", label: "Email" }
     ],
 
     // Hero CTA Buttons
@@ -55,7 +55,7 @@ const portfolioData = {
             id: "database", 
             icon: "fas fa-database", 
             name: "Databases",
-            description: "Experience with MySQL, Scylla, Redis, and DynamoDB"
+            description: "Experience with MySQL, NoSQL, Redis, DynamoDB, and Apache Doris"
         },
         { 
             id: "kafka", 
@@ -79,7 +79,7 @@ const portfolioData = {
             id: "cloud", 
             icon: "fas fa-cloud", 
             name: "Cloud",
-            description: "Familiar with AWS and cloud-native architectures"
+            description: "Experience with AWS and cloud-native architectures"
         }
     ],
 
@@ -87,46 +87,39 @@ const portfolioData = {
     about: {
         title: "About Me",
         content: `
-            <p>I'm a Senior Software Engineer with 4.6+ years of experience in building scalable, distributed systems and microservices. 
-            My expertise spans from designing robust backend systems to implementing high-throughput event processing services.</p>
+            <p>I'm a Data Engineer with 5+ years of experience building scalable, high-performance backend systems and distributed architectures. 
+            My expertise spans from designing robust data platforms to implementing high-throughput event processing services.</p>
             
-            <p>I specialize in GoLang, Java, SpringBoot, and stream processing technologies like Apache Kafka and Apache Flink. 
-            My passion lies in solving complex technical challenges and creating solutions that make a real impact.</p>
+            <p>I specialize in GoLang, Java, SpringBoot, and stream processing technologies like Apache Kafka, Apache Flink, and Apache Doris. 
+            My passion lies in solving complex technical challenges and creating data solutions that drive measurable business impact.</p>
             
-            <p>When I'm not coding, you'll find me exploring new technologies, solving algorithmic challenges on LeetCode, 
-            and continuously expanding my knowledge in system design and architecture.</p>
+            <p>When I'm not coding, you'll find me exploring new technologies, solving algorithmic challenges, 
+            and continuously expanding my knowledge in system design and data architecture.</p>
         `
     },
 
     // Timeline/Experience
     timeline: [
         {
-            year: "2023-Present",
-            title: "Senior Software Engineer",
+            year: "July 2023-Present",
+            title: "Data Engineer 2",
             company: "Pixis",
-            description: "Developed a scalable GoLang event processing service handling 100K rpm with 99% reduced data loss, integrating Kafka for data ingestion and secure API transfers. Built real-time Kafka stream processing pipelines with Apache Iceberg, handling 1M+ events/sec at sub-second latency.",
-            technologies: ["GoLang", "Kafka", "Apache Flink", "Apache Iceberg", "Microservices"]
+            description: "Developed a scalable Golang event processing service handling 100K requests per minute with a 99% reduction in data loss. Designed and implemented a scalable data platform utilizing Kafka, S3 Data Lake in Parquet format, and Apache Doris as the data warehouse. This system efficiently processes over 1TB of data daily across 5,000+ pipelines, enabling real-time analytics and reducing reporting latency by 30%.",
+            technologies: ["GoLang", "Kafka", "Apache Doris", "S3", "Parquet", "Data Platform"]
         },
         {
-            year: "2022-2023",
+            year: "Mar 2022-July 2023",
             title: "Software Engineer",
             company: "Threedots",
-            description: "Led the development of an online gaming service in Java, later transitioning to GoLang, achieving 2x reduction in Heap storage/CPU usage, 2x throughput improvement, and 3x latency decrease. Managed a virtual currency wallet processing 20K+ transactions daily.",
-            technologies: ["GoLang", "Java", "Kafka", "PostgreSQL", "Microservices"]
+            description: "Designed and developed new OTP Login/SignUp flow implementing mobile number verification system, reducing fraudulent user exploitation and costs by 25% annually. Developed the Watchlist Service from scratch, utilized by 50% of total users, increasing user retention by 15%. Built comprehensive User Activity Tracking Service with Mixpanel and WebEngage, contributing to 50% increase in actionable metrics.",
+            technologies: ["GoLang", "Java", "Mixpanel", "WebEngage", "Microservices"]
         },
         {
-            year: "2020-2022",
+            year: "July 2020-Feb 2022",
             title: "Software Engineer",
             company: "Ola Electric",
-            description: "Created a scalable User Auth and SSO solution using JWT authentication at 50K rpm. Developed a multi-organization user service platform and secure multi-tenant wallet platform handling 80K rpm.",
-            technologies: ["Java", "SpringBoot", "Kafka", "Apache Flink", "JWT"]
-        },
-        {
-            year: "2020",
-            title: "Software Intern",
-            company: "Ola Electric",
-            description: "Contributed to multi-tenant user management and tags module. Worked on a Flink job to ingest events from Kafka and onboard user wallets asynchronously.",
-            technologies: ["Java", "Kafka", "Payment Integration"]
+            description: "Developed comprehensive User Auth and SSO solution enabling concurrent logins across devices using JWT authentication, handling 50K requests per minute. Built Device Authentication and User Authentication Services, decreasing unauthorized login attempts by 40%. Designed URL Shortening Service reducing URL length by 70% and increasing usage by 25%.",
+            technologies: ["Java", "SpringBoot", "JWT", "MQTT", "Authentication"]
         }
     ],
 
@@ -151,13 +144,21 @@ const portfolioData = {
             ]
         },
         {
-            category: "Databases & Messaging",
+            category: "Databases & Data Systems",
             items: [
                 { name: "MySQL", level: 88 },
-                { name: "Kafka", level: 90 },
+                { name: "Apache Doris", level: 85 },
                 { name: "Redis", level: 85 },
                 { name: "DynamoDB", level: 80 },
-                { name: "Scylla", level: 78 }
+                { name: "MongoDB", level: 75 }
+            ]
+        },
+        {
+            category: "Messaging & Streaming",
+            items: [
+                { name: "Kafka", level: 90 },
+                { name: "MQTT", level: 80 },
+                { name: "Apache Parquet", level: 85 }
             ]
         },
         {
@@ -166,8 +167,8 @@ const portfolioData = {
                 { name: "Docker", level: 85 },
                 { name: "Git", level: 90 },
                 { name: "AWS", level: 75 },
-                { name: "Kubernetes", level: 70 },
-                { name: "Jmeter", level: 65 }
+                { name: "Postman", level: 85 },
+                { name: "JMeter", level: 70 }
             ]
         }
     ],
@@ -175,34 +176,34 @@ const portfolioData = {
     // Contact Information
     contact: {
         message: "Feel free to reach out for collaborations or just a friendly chat.",
-        email: "rathodveerender25@gmail.com",
-        phone: "+91-9129382373",
+        email: "shailendrakumarnirmal7524@gmail.com",
+        phone: "+91-8840265502",
         location: "Bengaluru, Karnataka, IN"
     },
 
     // Projects (based on work experience)
     projects: [
         {
-            title: "Scalable Event Processing Service",
-            description: "Built a high-throughput GoLang event processing service handling 100K requests per minute with 99% reduced data loss, integrating with Kafka and implementing retry mechanisms with exponential backoff.",
+            title: "Scalable Data Platform",
+            description: "Designed and implemented a scalable data platform utilizing Kafka, S3 Data Lake in Parquet format, and Apache Doris as the data warehouse. This system efficiently processes over 1TB of data daily across 5,000+ pipelines, enabling real-time analytics and reducing reporting latency by 30%.",
+            technologies: ["GoLang", "Kafka", "Apache Doris", "S3", "Parquet"],
+            github: "#"
+        },
+        {
+            title: "Event Processing Service",
+            description: "Developed a scalable Golang event processing service handling 100K requests per minute with a 99% reduction in data loss. Integrated Kafka for data ingestion and secure API transfers, implemented exponential backoff retry mechanisms, and enhanced system resilience with Dead Letter Queues.",
             technologies: ["GoLang", "Kafka", "Microservices", "API Design"],
             github: "#"
         },
         {
-            title: "Real-Time Data Processing Pipeline",
-            description: "Architected a real-time Kafka stream processing pipeline with Apache Iceberg, handling 1M+ events/sec at sub-second latency, leveraging fault-tolerant designs and transformation logic.",
-            technologies: ["Apache Flink", "Kafka", "Apache Iceberg", "Data Transformation"],
+            title: "User Activity Tracking System",
+            description: "Built comprehensive User Activity Tracking Service leveraging Mixpanel and WebEngage to track and analyze user metrics within the application. This service contributed to a 50% increase in actionable metrics for business intelligence teams.",
+            technologies: ["GoLang", "Mixpanel", "WebEngage", "Analytics"],
             github: "#"
         },
         {
-            title: "Online Gaming Platform",
-            description: "Led development of a gaming service with League, Prediction, Trading, and Quiz Match formats. Introduced a live leaderboard that boosted DAU/MAU ratio from 5% to 50%.",
-            technologies: ["GoLang", "Java", "Microservices", "PostgreSQL"],
-            github: "#"
-        },
-        {
-            title: "Multi-Tenant Auth & SSO Solution",
-            description: "Created a scalable User Auth and SSO solution using JWT authentication, supporting concurrent logins across devices and multi-organization sign-ups at 50K requests per minute.",
+            title: "Authentication & SSO Platform",
+            description: "Developed comprehensive User Auth and SSO solution enabling concurrent logins across devices using JWT authentication, supporting multi-organization sign-ups and handling 50K requests per minute with 30% improved response time.",
             technologies: ["Java", "SpringBoot", "JWT", "Security"],
             github: "#"
         }
@@ -210,23 +211,22 @@ const portfolioData = {
 
     // Achievements
     achievements: [
-        { title: "Qualified GATE 2019", description: "Qualified in the Graduate Aptitude Test in Engineering" },
         { title: "The Spot Light Award", description: "Awarded at Ola Electric, Bangalore" },
         { title: "The Warthog of Backend", description: "Awarded at Threedots, Bangalore" },
-        { title: "Pixis Trailblazers", description: "Awarded at Pixis, Bangalore" }
+        { title: "Pixis EOM", description: "Awarded at Pixis, Bangalore" }
     ],
 
     // Education
     education: {
-        degree: "Bachelor of Technology and Master of Technology in Information Technology (Dual Degree)",
+        degree: "Bachelor of Technology in Electronics and Communication (ECE)",
         institution: "Indian Institute of Information Technology Allahabad",
-        period: "Aug 2015 - July 2020",
+        period: "Aug 2016 - July 2020",
         location: "Allahabad"
     },
 
     // Footer
     footer: {
-        copyright: "© 2025 Veerender Rathod. All rights reserved."
+        copyright: "© 2025 Shailendra Kumar. All rights reserved."
     }
 };
 

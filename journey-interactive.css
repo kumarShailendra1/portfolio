@@ -1,4 +1,17 @@
-/* journey-complete.css - Complete Interactive Timeline Styles with Mobile Support */
+/* journey-complete.css - Complete Interactive Timeline Styles with Fixed Teal-Yellow Palette */
+
+/* Updated Color Variables - Fixed teal-yellow palette */
+:root {
+    --primary-color: #2d7d7d;           /* Fixed Dark teal from your palette */
+    --secondary-color: #a8c5c5;         /* Light teal */
+    --accent-color: #f0d878;            /* Soft yellow */
+    --text-color: #4a4a4a;              /* Dark gray */
+    --light-text: #6b6b6b;              /* Medium gray */
+    --bg-color: #ffffff;                /* White background */
+    --dark-section-bg: #2a2a2a;         /* Dark background for dark mode */
+    --primary-rgb: 45, 125, 125;        /* Primary color as RGB for transparency */
+    --secondary-rgb: 168, 197, 197;     /* Secondary color as RGB for transparency */
+}
 
 /* Journey Wrapper */
 .journey-wrapper {
@@ -14,7 +27,7 @@
     transform: translateY(0);
 }
 
-/* Progress Bar */
+/* Progress Bar - Fixed colors */
 .journey-progress {
     margin-bottom: 3rem;
 }
@@ -22,7 +35,7 @@
 .journey-progress-track {
     width: 100%;
     height: 6px;
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(var(--primary-rgb), 0.2);
     border-radius: 3px;
     overflow: hidden;
     position: relative;
@@ -31,7 +44,7 @@
 .journey-progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, #3b82f6, #6366f1);
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
     border-radius: 3px;
     transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
@@ -69,7 +82,7 @@
     padding: 2rem;
     position: relative;
     scrollbar-width: thin;
-    scrollbar-color: rgba(59, 130, 246, 0.3) rgba(59, 130, 246, 0.1);
+    scrollbar-color: var(--primary-color) rgba(var(--primary-rgb), 0.2);
 }
 
 .journey-timeline-track::-webkit-scrollbar {
@@ -77,16 +90,16 @@
 }
 
 .journey-timeline-track::-webkit-scrollbar-track {
-    background: rgba(59, 130, 246, 0.1);
+    background: rgba(var(--primary-rgb), 0.2);
     border-radius: 3px;
 }
 
 .journey-timeline-track::-webkit-scrollbar-thumb {
-    background: rgba(59, 130, 246, 0.3);
+    background: var(--primary-color);
     border-radius: 3px;
 }
 
-/* Timeline Node */
+/* Timeline Node - Fixed colors */
 .timeline-node {
     flex: 0 0 auto;
     width: 200px;
@@ -121,7 +134,7 @@
     left: 100%;
     width: 2rem;
     height: 2px;
-    background: linear-gradient(90deg, rgba(59, 130, 246, 0.3), transparent);
+    background: linear-gradient(90deg, var(--primary-color), transparent);
     z-index: 0;
 }
 
@@ -129,29 +142,30 @@
     display: none;
 }
 
-/* Node Circle */
+/* Node Circle - Fixed colors */
 .node-circle {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0 auto 1rem;
     position: relative;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.3);
     transition: all 0.4s ease;
 }
 
 .timeline-node.active .node-circle {
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5);
+    box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.5);
     transform: scale(1.1);
 }
 
 .node-icon {
     font-size: 2rem;
     filter: grayscale(0);
+    color: white;
 }
 
 /* Node Pulse Animation */
@@ -163,7 +177,7 @@
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 2px solid currentColor;
+    border: 2px solid var(--primary-color);
     opacity: 0;
     animation: pulse-ring 2s infinite;
 }
@@ -210,7 +224,7 @@
     padding: 2rem;
     margin-bottom: 3rem;
     transition: all 0.3s ease;
-    border: 1px solid rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
 }
 
 .info-header {
@@ -219,8 +233,7 @@
     gap: 1.5rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1.5rem;
-    border-bottom: 2px solid;
-    border-color: rgba(59, 130, 246, 0.1);
+    border-bottom: 2px solid rgba(var(--primary-rgb), 0.2);
 }
 
 .info-icon {
@@ -231,8 +244,9 @@
     align-items: center;
     justify-content: center;
     font-size: 1.75rem;
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.3);
+    color: white;
 }
 
 .info-meta {
@@ -267,19 +281,23 @@
     gap: 0.5rem;
 }
 
+/* Tech Chip - Fixed colors */
 .tech-chip {
     padding: 0.375rem 1rem;
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 500;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--primary-color);
+    background: rgba(var(--primary-rgb), 0.1) !important;
+    color: var(--primary-color) !important;
     transition: all 0.3s ease;
+    border: none;
 }
 
 .tech-chip:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+    box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color)) !important;
+    color: white !important;
 }
 
 .info-footer {
@@ -287,12 +305,13 @@
     justify-content: flex-end;
 }
 
+/* Explore Button - Fixed colors */
 .explore-btn {
     padding: 0.75rem 1.5rem;
     border-radius: 8px;
     border: none;
-    background: linear-gradient(135deg, #3b82f6, #6366f1);
-    color: white;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+    color: white !important;
     font-weight: 500;
     cursor: pointer;
     display: flex;
@@ -303,7 +322,8 @@
 
 .explore-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.3);
+    background: linear-gradient(135deg, #1f5a5a, var(--primary-color)) !important;
 }
 
 .explore-btn i {
@@ -314,7 +334,7 @@
     transform: translateX(4px);
 }
 
-/* Controls */
+/* Controls - Fixed colors */
 .journey-controls {
     display: flex;
     align-items: center;
@@ -327,7 +347,7 @@
     width: 48px;
     height: 48px;
     border-radius: 50%;
-    border: 2px solid rgba(59, 130, 246, 0.3);
+    border: 2px solid var(--primary-color);
     background: var(--bg-color);
     color: var(--primary-color);
     cursor: pointer;
@@ -343,7 +363,7 @@
     background: var(--primary-color);
     color: white;
     transform: scale(1.1);
-    box-shadow: 0 8px 24px rgba(59, 130, 246, 0.3);
+    box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.3);
 }
 
 .control-btn:disabled {
@@ -355,7 +375,7 @@
     transform: scale(0.95);
 }
 
-/* Journey Indicators */
+/* Journey Indicators - Fixed colors */
 .journey-indicators {
     display: flex;
     gap: 0.5rem;
@@ -366,13 +386,13 @@
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background: rgba(59, 130, 246, 0.2);
+    background: rgba(var(--primary-rgb), 0.2);
     cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .indicator-dot:hover {
-    background: rgba(59, 130, 246, 0.4);
+    background: rgba(var(--primary-rgb), 0.4);
     transform: scale(1.2);
 }
 
@@ -382,7 +402,7 @@
 }
 
 .indicator-dot.past {
-    background: rgba(59, 130, 246, 0.5);
+    background: rgba(var(--primary-rgb), 0.5);
 }
 
 /* Modal Enhancements */
@@ -413,7 +433,7 @@
     background: var(--bg-color);
     backdrop-filter: blur(20px);
     border-radius: 20px;
-    border: 1px solid rgba(59, 130, 246, 0.3);
+    border: 1px solid rgba(var(--primary-rgb), 0.2);
     max-width: 800px;
     max-height: 90vh;
     overflow-y: auto;
@@ -462,6 +482,7 @@
     align-items: center;
     gap: 1.5rem;
     border-radius: 16px 16px 0 0;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
 }
 
 .modal-icon {
@@ -508,7 +529,7 @@
 
 .modal-tech-item {
     padding: 1rem;
-    border: 2px solid rgba(59, 130, 246, 0.2);
+    border: 2px solid rgba(var(--primary-rgb), 0.2);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -518,59 +539,69 @@
 
 .modal-tech-item:hover {
     border-color: var(--primary-color);
-    background: rgba(59, 130, 246, 0.05);
+    background: rgba(var(--primary-rgb), 0.05);
     transform: translateY(-2px);
 }
 
 /* Dark Mode Mobile Adjustments */
 body.dark .journey-info-card {
     background: var(--dark-section-bg);
-    border-color: rgba(96, 165, 250, 0.2);
+    border-color: rgba(var(--secondary-rgb), 0.2);
 }
 
 body.dark .control-btn {
     background: var(--dark-section-bg);
-    border-color: rgba(96, 165, 250, 0.3);
+    border-color: rgba(var(--secondary-rgb), 0.3);
 }
 
 body.dark .journey-progress-track {
-    background: rgba(96, 165, 250, 0.1);
+    background: rgba(var(--secondary-rgb), 0.1);
 }
 
 body.dark .tech-chip {
-    background: rgba(96, 165, 250, 0.1);
+    background: rgba(var(--secondary-rgb), 0.1) !important;
+    color: var(--secondary-color) !important;
+}
+
+body.dark .tech-chip:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color)) !important;
+    color: white !important;
 }
 
 body.dark .modal-tech-item {
-    border-color: rgba(96, 165, 250, 0.2);
+    border-color: rgba(var(--secondary-rgb), 0.2);
+}
+
+body.dark .modal-journey-header {
+    background: linear-gradient(135deg, #1f5a5a, var(--primary-color));
 }
 
 /* Dark mode timeline nodes */
 @media (max-width: 1024px) {
     body.dark .timeline-node {
-        background: rgba(96, 165, 250, 0.05);
+        background: rgba(var(--secondary-rgb), 0.05);
     }
 
     body.dark .timeline-node.active {
-        background: rgba(96, 165, 250, 0.15);
-        border-color: rgba(96, 165, 250, 0.5);
+        background: rgba(var(--secondary-rgb), 0.15);
+        border-color: rgba(var(--secondary-rgb), 0.5);
     }
 
     body.dark .journey-controls {
         background: var(--dark-section-bg);
-        border-color: rgba(96, 165, 250, 0.3);
+        border-color: rgba(var(--secondary-rgb), 0.3);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
     body.dark .control-btn {
         background: var(--dark-section-bg);
-        border-color: rgba(96, 165, 250, 0.3);
-        color: #60a5fa;
+        border-color: rgba(var(--secondary-rgb), 0.3);
+        color: var(--secondary-color);
     }
 
     body.dark .control-btn:hover:not(:disabled) {
-        background: #60a5fa;
-        border-color: #60a5fa;
+        background: var(--secondary-color);
+        border-color: var(--secondary-color);
         color: var(--dark-section-bg);
     }
 
@@ -616,7 +647,7 @@ body.dark .modal-tech-item {
         right: -2px;
         bottom: -2px;
         border-radius: 13px;
-        background: linear-gradient(45deg, var(--primary-color), #6366f1);
+        background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
         z-index: -1;
         opacity: 0.3;
     }
@@ -627,7 +658,7 @@ body.dark .modal-tech-item {
     }
 
     .timeline-node.past .node-circle {
-        background: linear-gradient(135deg, #10b981, #059669);
+        background: linear-gradient(135deg, #22c55e, #16a34a) !important;
     }
 
     /* Future nodes styling */
@@ -636,8 +667,78 @@ body.dark .modal-tech-item {
     }
 
     .timeline-node.future .node-circle {
-        background: linear-gradient(135deg, #9ca3af, #6b7280);
+        background: linear-gradient(135deg, #9ca3af, #6b7280) !important;
     }
+}
+
+/* Override any JavaScript inline styles that might be setting blue colors */
+.timeline-node .node-circle[style*="background"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+.tech-chip[style*="background"] {
+    background: rgba(var(--primary-rgb), 0.1) !important;
+    color: var(--primary-color) !important;
+}
+
+.tech-chip[style*="background"]:hover {
+    background: linear-gradient(135deg, var(--secondary-color), var(--accent-color)) !important;
+    color: white !important;
+}
+
+.info-icon[style*="background"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+.explore-btn[style*="background"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+/* Fix modal colors - Override any JavaScript-generated blue colors */
+.modal-journey-header[style*="background"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+.modal-tech-item[style*="border-color"] {
+    border-color: var(--primary-color) !important;
+}
+
+.modal-tech-item i[style*="color"] {
+    color: var(--primary-color) !important;
+}
+
+/* Fix any dynamically generated content with blue colors */
+*[style*="background: #3b82f6"], 
+*[style*="background:#3b82f6"],
+*[style*="background: #6366f1"],
+*[style*="background:#6366f1"],
+*[style*="background: #8b5cf6"],
+*[style*="background:#8b5cf6"],
+*[style*="background: #a855f7"],
+*[style*="background:#a855f7"] {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+*[style*="border-color: #3b82f6"],
+*[style*="border-color:#3b82f6"],
+*[style*="border-color: #6366f1"], 
+*[style*="border-color:#6366f1"],
+*[style*="border-color: #8b5cf6"],
+*[style*="border-color:#8b5cf6"],
+*[style*="border-color: #a855f7"],
+*[style*="border-color:#a855f7"] {
+    border-color: var(--primary-color) !important;
+}
+
+*[style*="color: #3b82f6"],
+*[style*="color:#3b82f6"],
+*[style*="color: #6366f1"],
+*[style*="color:#6366f1"],
+*[style*="color: #8b5cf6"],
+*[style*="color:#8b5cf6"],
+*[style*="color: #a855f7"],
+*[style*="color:#a855f7"] {
+    color: var(--primary-color) !important;
 }
 
 /* =================================
@@ -684,7 +785,7 @@ body.dark .modal-tech-item {
         opacity: 0.7;
         position: relative;
         padding: 1rem;
-        background: rgba(59, 130, 246, 0.05);
+        background: rgba(var(--primary-rgb), 0.05);
         border-radius: 12px;
         border: 1px solid transparent;
         transition: all 0.3s ease;
@@ -693,15 +794,15 @@ body.dark .modal-tech-item {
 
     .timeline-node.active {
         opacity: 1;
-        background: rgba(59, 130, 246, 0.1);
+        background: rgba(var(--primary-rgb), 0.1);
         border-color: var(--primary-color);
         transform: none;
-        box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+        box-shadow: 0 4px 12px rgba(var(--primary-rgb), 0.2);
     }
 
     .timeline-node.hover {
         transform: none;
-        background: rgba(59, 130, 246, 0.08);
+        background: rgba(var(--primary-rgb), 0.08);
     }
 
     /* Hide connector lines in grid layout */
@@ -719,7 +820,7 @@ body.dark .modal-tech-item {
 
     .timeline-node.active .node-circle {
         transform: scale(1.1);
-        box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
+        box-shadow: 0 8px 24px rgba(var(--primary-rgb), 0.4);
     }
 
     .node-icon {
@@ -831,7 +932,7 @@ body.dark .modal-tech-item {
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
         z-index: 100;
         gap: 0.75rem;
-        border: 1px solid rgba(59, 130, 246, 0.2);
+        border: 1px solid rgba(var(--primary-rgb), 0.2);
     }
 
     .control-btn {
@@ -869,17 +970,17 @@ body.dark .modal-tech-item {
 
     /* Dark mode mobile adjustments */
     body.dark .timeline-node {
-        background: rgba(96, 165, 250, 0.05);
+        background: rgba(var(--secondary-rgb), 0.05);
     }
 
     body.dark .timeline-node.active {
-        background: rgba(96, 165, 250, 0.15);
-        border-color: rgba(96, 165, 250, 0.5);
+        background: rgba(var(--secondary-rgb), 0.15);
+        border-color: rgba(var(--secondary-rgb), 0.5);
     }
 
     body.dark .journey-controls {
         background: var(--dark-section-bg);
-        border-color: rgba(96, 165, 250, 0.3);
+        border-color: rgba(var(--secondary-rgb), 0.3);
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     }
 
@@ -1046,7 +1147,7 @@ body.dark .modal-tech-item {
         align-items: center;
         text-align: center;
         padding: 1.25rem;
-        background: rgba(59, 130, 246, 0.05);
+        background: rgba(var(--primary-rgb), 0.05);
         border-radius: 12px;
         min-height: 140px;
     }
