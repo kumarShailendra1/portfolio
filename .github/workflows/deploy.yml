@@ -3,57 +3,45 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
   workflow_dispatch:
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-22.04
+    runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # Diagnostic: Show available disk space before cleanup
-      - name: Show disk usage at very start
-        run: |
-          echo "Runner disk usage:"
-          df -h
-          echo "Top directories by usage:"
-          sudo du -h -d 1 /home/runner | sort -hr | head -20
-          sudo du -h -d 1 / | sort -hr | head -20
-
-
-      # Clean up disk space to prevent "No space left on device" errors
-      - name: Free up disk space
-        run: |
-          sudo rm -rf /usr/share/dotnet
-          sudo rm -rf /opt/ghc
-          sudo rm -rf /usr/local/lib/android
-          sudo apt-get clean
-          sudo rm -rf /var/lib/apt/lists/*
-          df -h
-
-      # (Optional) Show largest directories for debug, remove if not needed
-      - name: Show largest folders
-        run: du -h -d 1 / | sort -hr | head -40
-
+      
+      # Optional: Add build steps here if you need to build your site
+      # - name: Build site
+      #   run: |
+      #     # Add your build commands here
+      #     # npm install && npm run build
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # Upload entire repository (or specify build output directory)
           path: '.'
-
+      
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
